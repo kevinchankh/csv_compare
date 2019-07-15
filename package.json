@@ -1,0 +1,17 @@
+{
+  "name": "testcsvjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parse": "FILEPATH=${MONGOFILEPATH} node index.js > ${MONGOFILEPATH}_processed.js && FILEPATH=${POSTGRESFILEPATH} node index.js > ${POSTGRESFILEPATH}_processed.js && node findthedifference.js > ${MONGOFILEPATH}_vs_${POSTGRESFILEPATH}_difference.js",
+    "parse:one": "FILEPATH=${MONGOFILEPATH} node index.js > ${MONGOFILEPATH}_processed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.8",
+    "underscore": "^1.9.1"
+  }
+}
