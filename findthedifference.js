@@ -2,9 +2,19 @@ const _ = require("underscore");
 const akulaku = require(`./${process.env.MONGOFILEPATH}_processed.js`);
 const postgres = require(`./${process.env.POSTGRESFILEPATH}_processed.js`);
 // console.log(akulaku.length, postgres.length);
+
+const shortidsdiff = _.difference(akulaku.shortids, postgres.shortids);
 const difference = _.difference(akulaku.ids, postgres.ids);
+const differenceInTypes = _.difference(akulaku.types, postgres.types);
 // console.log(difference);
-console.log('//',difference.length);
+console.log('//fullid differece',difference.length);
+console.log('//shortid differece',shortidsdiff.length);
+console.log('const diffInshortids = ');
+console.dir(shortidsdiff, {'maxArrayLength': null});
+console.log(';');
+console.log('const diffInTypes = ');
+console.dir(differenceInTypes, {'maxArrayLength': null});
+console.log(';');
 console.log('const difference = ');
-console.dir(difference, {'maxArrayLength': null})
+console.dir(difference, {'maxArrayLength': null});
 console.log(';');
